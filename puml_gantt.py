@@ -4,6 +4,15 @@ This is
 from enum import Enum
 import calendar
 
+
+class Task:
+    def __init__(self, taskname, start_time, end_time):
+        self.color = None
+        self.start_time = start_time
+        self.taskname = taskname
+        self.end_time = end_time
+    
+
 class Quarter(Enum):
     """
     This is
