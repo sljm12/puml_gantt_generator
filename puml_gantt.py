@@ -5,12 +5,7 @@ from enum import Enum
 import calendar
 
 
-class Task:
-    def __init__(self, taskname, start_time, end_time):
-        self.color = None
-        self.start_time = start_time
-        self.taskname = taskname
-        self.end_time = end_time
+
     
 
 class Quarter(Enum):
@@ -67,7 +62,21 @@ class QuarterYear:
     
     def end_date(self):
         return self.quarter.get_end_date(self.year)
+
+class Task:
+    def __init__(self, taskname: str, quarter: QuarterYear, start_time = None, end_time = None):
+        self.color = None
+        self.start_time = start_time
+        self.taskname = taskname
+        self.end_time = end_time
+        self.quarter = quarter
+    
     
 a = Quarter.Q1
 
 print(a.get_date_start(2024), a.get_date_end(2024))
+
+q1 = QuarterYear(a, 2024)
+Task(taskname = "GIS", quarter=q1)
+
+
